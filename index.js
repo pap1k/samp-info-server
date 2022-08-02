@@ -1,5 +1,6 @@
 const getInfo = require("./sampinfo")
 const express = require("express")
+const cors = require("cors")
 
 const app = express()
 const PORT = 1337
@@ -9,6 +10,7 @@ let lastresponse = {}
 let timestamp = {}
 
 app.use(express.json())
+app.use(cors())
 
 app.get("/:ip", (req, res) => {
   const IP = req.params["ip"] || ""
